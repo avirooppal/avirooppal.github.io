@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aviroop Pal — ML & Backend Engineer</title>
+  <meta name="description" content="Aviroop Pal — AI Engineer specializing in real-time multimodal AI systems, LLM evaluation, and production-ready scalable backends." />
+  <title>Aviroop Pal — AI Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap"
     rel="stylesheet" />
@@ -21,11 +23,13 @@
     :root {
       --bg: #0b0c0e;
       --surface: #111316;
+      --surface-hover: #161820;
       --border: #1f2127;
+      --border-light: #2c2f38;
       --text: #c9cdd6;
-      --muted: #52576a;
+      --muted: #62687c;
       --accent: #a3e635;
-      --accent-dim: #3d5212;
+      --accent-dim: #1f2d08;
       --white: #eef0f4;
       --mono: 'DM Mono', monospace;
       --serif: 'Fraunces', serif;
@@ -42,6 +46,7 @@
       font-size: 13.5px;
       line-height: 1.7;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ─── Grain overlay ─── */
@@ -57,7 +62,7 @@
 
     /* ─── Layout ─── */
     .shell {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 0 28px;
     }
@@ -71,7 +76,8 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: var(--bg);
+      background: rgba(11, 12, 14, 0.92);
+      backdrop-filter: blur(8px);
       z-index: 100;
     }
 
@@ -80,6 +86,7 @@
       font-size: 15px;
       color: var(--white);
       letter-spacing: -0.01em;
+      text-decoration: none;
     }
 
     nav .logo span {
@@ -89,7 +96,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 28px;
+      gap: 24px;
     }
 
     nav ul a {
@@ -118,8 +125,9 @@
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-dim);
+      border: 1px solid rgba(163, 230, 53, 0.2);
       padding: 3px 10px;
-      border-radius: 2px;
+      border-radius: 3px;
       margin-bottom: 28px;
       opacity: 0;
       animation: fadeUp 0.6s 0.1s forwards;
@@ -141,12 +149,24 @@
       color: var(--accent);
     }
 
+    .hero-meta {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.25s forwards;
+    }
+
     .hero-sub {
       margin-top: 24px;
-      max-width: 540px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
+      max-width: 620px;
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.8;
       opacity: 0;
       animation: fadeUp 0.7s 0.35s forwards;
     }
@@ -154,7 +174,7 @@
     .hero-links {
       margin-top: 36px;
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
       opacity: 0;
       animation: fadeUp 0.7s 0.5s forwards;
@@ -195,6 +215,7 @@
     .btn-ghost:hover {
       border-color: var(--muted);
       color: var(--white);
+      transform: translateY(-1px);
     }
 
     /* ─── Sections ─── */
@@ -216,7 +237,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -238,51 +259,6 @@
       margin-bottom: 8px;
     }
 
-    /* ─── Skills ─── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 32px;
-    }
-
-    .skill-block {
-      background: var(--surface);
-      padding: 20px;
-      transition: background 0.2s;
-    }
-
-    .skill-block:hover {
-      background: #161820;
-    }
-
-    .skill-block .label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .skill-block .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .chip {
-      font-size: 11px;
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 2px 8px;
-      border-radius: 2px;
-    }
-
     /* ─── Experience ─── */
     .exp-list {
       display: flex;
@@ -291,20 +267,31 @@
     }
 
     .exp-item {
-      padding: 28px 0;
+      padding: 32px 0;
       border-bottom: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 12px;
+      gap: 10px 16px;
+    }
+
+    .exp-item:first-child {
+      padding-top: 0;
     }
 
     .exp-item:last-child {
       border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .exp-role {
       font-family: var(--serif);
-      font-size: 16px;
+      font-size: 16.5px;
       font-weight: 300;
       color: var(--white);
       letter-spacing: -0.01em;
@@ -313,22 +300,37 @@
     .exp-org {
       color: var(--accent);
       font-size: 12px;
-      margin: 4px 0 12px;
+      margin-top: 2px;
+    }
+
+    .exp-meta-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
     }
 
     .exp-duration {
       font-size: 11px;
       color: var(--muted);
-      text-align: right;
       white-space: nowrap;
+    }
+
+    .exp-location {
+      font-size: 10.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .exp-bullets {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       grid-column: 1 / -1;
+      margin-top: 10px;
     }
 
     .exp-bullets li {
@@ -336,6 +338,7 @@
       color: var(--text);
       padding-left: 16px;
       position: relative;
+      line-height: 1.65;
     }
 
     .exp-bullets li::before {
@@ -343,6 +346,7 @@
       position: absolute;
       left: 0;
       color: var(--accent);
+      font-weight: bold;
     }
 
     .exp-tech {
@@ -362,10 +366,10 @@
       border: 1px solid var(--border);
       border-radius: 4px;
       overflow: hidden;
-      margin-top: 32px;
+      margin-top: 28px;
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 680px) {
       .project-grid {
         grid-template-columns: 1fr;
       }
@@ -373,30 +377,61 @@
 
     .project-card {
       background: var(--surface);
-      padding: 24px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      transition: background 0.2s;
-      position: relative;
+      gap: 12px;
+      transition: background 0.2s, transform 0.2s;
     }
 
     .project-card:hover {
-      background: #151720;
+      background: var(--surface-hover);
+    }
+
+    .project-card .p-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
     }
 
     .project-card .p-name {
       font-family: var(--serif);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 300;
       color: var(--white);
       letter-spacing: -0.01em;
+      line-height: 1.3;
     }
 
     .project-card .p-desc {
+      font-size: 12.5px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .project-card .p-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .project-card .p-bullets li {
       font-size: 12px;
       color: var(--muted);
-      line-height: 1.65;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .project-card .p-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
     }
 
     .project-card .p-tech {
@@ -404,51 +439,100 @@
       flex-wrap: wrap;
       gap: 5px;
       margin-top: auto;
+      padding-top: 14px;
     }
 
     /* ─── Research ─── */
-    .research-item {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
+    .research-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 26px;
+      margin-top: 28px;
+      transition: background 0.2s;
     }
 
-    .research-item:last-child {
-      border-bottom: none;
+    .research-card:hover {
+      background: var(--surface-hover);
     }
 
-    .research-item .r-title {
+    .research-card .r-title {
       font-family: var(--serif);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 300;
       color: var(--white);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .research-item .r-desc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ─── About ─── */
-    .about-text {
-      font-size: 14px;
-      line-height: 1.85;
+    .research-card .r-desc {
+      font-size: 12.5px;
       color: var(--text);
-      max-width: 620px;
+      line-height: 1.75;
     }
 
-    .about-text strong {
-      color: var(--white);
+    /* ─── Skills ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 28px;
+    }
+
+    .skill-block {
+      background: var(--surface);
+      padding: 22px;
+      transition: background 0.2s;
+    }
+
+    .skill-block:hover {
+      background: var(--surface-hover);
+    }
+
+    .skill-block .label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
       font-weight: 500;
     }
 
-    /* ─── Certs ─── */
+    .skill-block .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 11px;
+      color: #9da3b4;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 2px;
+      line-height: 1.5;
+    }
+
+    /* ─── Education & Certifications ─── */
+    .edu-block {
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
     .cert-list {
       display: flex;
       flex-direction: column;
       gap: 0;
-      margin-top: 24px;
+      margin-top: 16px;
     }
 
     .cert-item {
@@ -458,6 +542,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 12.5px;
+      gap: 16px;
     }
 
     .cert-item:last-child {
@@ -471,6 +556,12 @@
     .cert-issuer {
       color: var(--muted);
       font-size: 11.5px;
+      white-space: nowrap;
+    }
+
+    /* ─── Contact ─── */
+    #contact h2 {
+      margin-bottom: 12px;
     }
 
     /* ─── Footer ─── */
@@ -481,11 +572,14 @@
       align-items: center;
       font-size: 11px;
       color: var(--muted);
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     footer a {
       color: var(--muted);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     footer a:hover {
@@ -541,6 +635,25 @@
       background: var(--border);
       border-radius: 2px;
     }
+
+    @media (max-width: 560px) {
+      .exp-item {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-meta-right {
+        text-align: left;
+        align-items: flex-start;
+      }
+
+      .edu-block {
+        flex-direction: column;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+    }
   </style>
 </head>
 
@@ -550,11 +663,12 @@
 
     <!-- Nav -->
     <nav>
-      <div class="logo">AP<span>.</span></div>
+      <a href="#" class="logo">AP<span>.</span></a>
       <ul>
         <li><a href="#experience">Work</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="Aviroop-Pal-Resume.pdf" target="_blank">Resume</a></li>
       </ul>
@@ -564,16 +678,20 @@
     <section id="hero" style="opacity:1;transform:none;border-bottom:1px solid var(--border);">
       <div class="tag">Open to opportunities</div>
       <h1>Aviroop <em>Pal</em><span class="blink"></span></h1>
+      <div class="hero-meta">
+        <span>Kolkata, West Bengal, India</span>
+        <span>·</span>
+        <span>AI Engineer</span>
+      </div>
       <p class="hero-sub">
-        ML &amp; Backend engineer building scalable AI systems, deep learning models, and production-ready APIs.
-        Focused on NLP, Computer Vision, and privacy-preserving ML.
+        AI Engineer with hands-on experience designing and shipping real-time, production-ready AI systems. Skilled at building end-to-end pipelines that ingest and process multimodal data (audio, vision, and sensor streams), integrate large language models, and expose them through scalable, containerized backends using Python, PyTorch, TensorFlow, FastAPI, and Docker.
       </p>
       <div class="hero-links">
         <a href="mailto:palaviroopoff@gmail.com" class="btn btn-primary">↗ Get in touch</a>
-        <a href="Aviroop-Pal-Resume.pdf" target="_blank" class="btn btn-ghost">↓ Resume</a>
-        <a href="https://github.com/avirooppal " target="_blank" class="btn btn-ghost">GitHub</a>
-        <a href="https://www.linkedin.com/in/aviroop-pal" target="_blank" class="btn btn-ghost">LinkedIn</a>
-        <a href="https://x.com/obhisaysavi" target="_blank" class="btn btn-ghost">x</a>
+        <a href="Aviroop-Pal-Resume.pdf" target="_blank" class="btn btn-ghost">↓ Resume (PDF)</a>
+        <a href="https://github.com/avirooppal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
+        <a href="https://www.linkedin.com/in/aviroop-pal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://x.com/obhisaysavi" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">X (Twitter)</a>
       </div>
     </section>
 
@@ -582,72 +700,127 @@
       <div class="section-label">Experience</div>
       <div class="exp-list">
 
+        <!-- AirDawgLabs -->
         <div class="exp-item">
-          <div>
-            <div class="exp-role">AI/ML Intern</div>
-            <div class="exp-org">BaseApp · Remote, Delhi</div>
+          <div class="exp-header">
+            <div class="exp-role">AI Systems Evaluation Intern</div>
+            <div class="exp-org">AirDawgLabs</div>
           </div>
-          <div class="exp-duration">2 months</div>
+          <div class="exp-meta-right">
+            <div class="exp-duration">Jul 2026 – Oct 2026</div>
+            <div class="exp-location">Remote</div>
+          </div>
           <ul class="exp-bullets">
-            <li>Built a real-time Voice-to-Voice AI system with sub-second latency using Faster-Whisper, LLMs, and TTS.
-            </li>
-            <li>Architected WebSocket-based streaming API for bidirectional audio with Redis session management.</li>
-            <li>Ensured production readiness — DoS protection, GPU acceleration, Dockerized deployment.</li>
+            <li>Evaluated LLMs and generative AI systems using structured testing frameworks to benchmark reliability, safety, and output quality against defined guidelines.</li>
+            <li>Conducted prompt engineering, qualitative reviews, and analytical evaluations of model performance; contributed to validation pipelines and technical documentation.</li>
+            <li>Used Cursor Pro and LLM-assisted tooling to accelerate analysis, structured data annotation, and testing.</li>
           </ul>
           <div class="exp-tech">
-            <span class="chip">Python</span><span class="chip">WebSockets</span><span class="chip">Redis</span><span
-              class="chip">Docker</span><span class="chip">LLMs</span><span class="chip">Ollama</span>
+            <span class="chip">LLM Evaluation</span>
+            <span class="chip">Generative AI</span>
+            <span class="chip">Prompt Engineering</span>
+            <span class="chip">Model Benchmarking</span>
+            <span class="chip">Cursor Pro</span>
+            <span class="chip">Validation Pipelines</span>
           </div>
         </div>
 
+        <!-- NeoCortex LLC -->
         <div class="exp-item">
-          <div>
-            <div class="exp-role">Software Development Intern</div>
-            <div class="exp-org">Proption Fintech · Remote, Delhi</div>
+          <div class="exp-header">
+            <div class="exp-role">AI/ML Intern</div>
+            <div class="exp-org">NeoCortex LLC</div>
           </div>
-          <div class="exp-duration">4 months</div>
+          <div class="exp-meta-right">
+            <div class="exp-duration">Apr 2026 – May 2026</div>
+            <div class="exp-location">Remote</div>
+          </div>
           <ul class="exp-bullets">
-            <li>Developed internal tooling in Go to streamline company operations.</li>
-            <li>Designed financial algorithms including the Supertrend indicator for NIFTY data.</li>
-            <li>Contributed to full-stack feature development and data preprocessing pipelines.</li>
+            <li>Contributed to AI-powered Chrome extensions focused on automation and productivity workflows, integrating browser APIs with AI-driven backend systems and REST APIs.</li>
+            <li>Assisted in designing scalable, secure extension architectures for production deployment.</li>
+            <li>Participated in testing, debugging, and deployment workflows in a collaborative remote setting.</li>
           </ul>
           <div class="exp-tech">
-            <span class="chip">Go</span><span class="chip">Backend</span><span class="chip">Financial
-              Algorithms</span><span class="chip">Data Analysis</span>
+            <span class="chip">Chrome Extension APIs</span>
+            <span class="chip">Manifest V3</span>
+            <span class="chip">JavaScript / TypeScript</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">AI Workflows</span>
           </div>
         </div>
 
+        <!-- BaseApp -->
         <div class="exp-item">
-          <div>
+          <div class="exp-header">
             <div class="exp-role">AI/ML Intern</div>
-            <div class="exp-org">TherapyU · Hybrid, West Bengal</div>
+            <div class="exp-org">BaseApp</div>
           </div>
-          <div class="exp-duration">Jan – Feb 2025</div>
+          <div class="exp-meta-right">
+            <div class="exp-duration">Dec 2025 – Feb 2026</div>
+            <div class="exp-location">Remote</div>
+          </div>
           <ul class="exp-bullets">
-            <li>Implemented AI/ML algorithms to enhance web application functionality.</li>
-            <li>Collaborated with UI/UX teams for seamless AI feature integration.</li>
-            <li>Handled data analysis, preprocessing, and model optimization for scalability.</li>
+            <li>Built a real-time Voice-to-Voice (V2V) AI system with sub-second latency, integrating Speech-to-Text, LLMs, and Text-to-Speech into one pipeline.</li>
+            <li>Implemented a WebSocket-based streaming API for bidirectional audio/text communication and real-time response generation.</li>
+            <li>Designed a scalable asynchronous backend with Redis-based session management and Dockerized deployment.</li>
+            <li>Hardened the system for production with authentication, DoS protection, memory optimization, and GPU acceleration.</li>
           </ul>
           <div class="exp-tech">
-            <span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">AI
-              Integration</span>
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">WebSockets</span>
+            <span class="chip">Redis</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Faster-Whisper</span>
+            <span class="chip">TTS</span>
+            <span class="chip">GPU Inference</span>
           </div>
         </div>
+
+        <!-- Proption Fintech -->
         <div class="exp-item">
-          <div>
+          <div class="exp-header">
             <div class="exp-role">AI/ML Intern</div>
-            <div class="exp-org">NeoCortex LLC · Remote, US</div>
+            <div class="exp-org">Proption Fintech Private Limited</div>
           </div>
-          <div class="exp-duration">May,2026 - Current</div>
+          <div class="exp-meta-right">
+            <div class="exp-duration">Nov 2025 – Feb 2026</div>
+            <div class="exp-location">Remote</div>
+          </div>
           <ul class="exp-bullets">
-            <li>Contributed to AI-powered Chrome Extensions focused on automation and productivity workflows.
-            </li>
-            <li>Integrated browser APIs with AI-driven backend systems and REST APIs.</li>
-            <li>Assisted in developing scalable and secure extension architectures for production deployment</li>
+            <li>Built internal company tools in Go to streamline operations.</li>
+            <li>Designed and implemented financial algorithms, including a Supertrend indicator for NIFTY, to support data-driven decision-making.</li>
+            <li>Contributed to backend and frontend development and to data collection/preprocessing that supported algorithm evaluation.</li>
           </ul>
           <div class="exp-tech">
-            <span class="chip">JavaScript</span><span class="chip">Chrome Extensions API</span><span class="chip">AI Integration</span><span
-              class="chip">REST APIs</span><span class="chip">GitHub</span>
+            <span class="chip">Go</span>
+            <span class="chip">Financial Algorithms</span>
+            <span class="chip">NIFTY</span>
+            <span class="chip">Data Preprocessing</span>
+            <span class="chip">Full-Stack Development</span>
+          </div>
+        </div>
+
+        <!-- TherapyU -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">AI/ML Intern</div>
+            <div class="exp-org">TherapyU, BIRAC Cell – Adamas University</div>
+          </div>
+          <div class="exp-meta-right">
+            <div class="exp-duration">Jan 2025 – Feb 2025</div>
+            <div class="exp-location">West Bengal</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed and implemented production-ready AI/ML algorithms to enhance a web application’s functionality, collaborating with UI/UX and development teams.</li>
+            <li>Conducted data analysis, preprocessing, and model optimization for performance and scalability; rapidly prototyped AI solutions and produced technical documentation.</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="chip">Python</span>
+            <span class="chip">AI/ML Algorithms</span>
+            <span class="chip">Model Optimization</span>
+            <span class="chip">Data Analysis</span>
+            <span class="chip">Technical Prototyping</span>
           </div>
         </div>
 
@@ -656,125 +829,261 @@
 
     <!-- Projects -->
     <section id="projects">
-      <div class="section-label">Projects</div>
+      <div class="section-label">Selected Projects</div>
       <div class="project-grid">
 
+        <!-- Vanta -->
         <div class="project-card">
-          <div class="p-name">Real-Time Voice AI System</div>
-          <div class="p-desc">Engineered a low-latency conversational Voice-to-Voice AI platform supporting real-time multimodal communication. Built asynchronous APIs and optimized GPU inference.</div>
+          <div class="p-top">
+            <div class="p-name">Vanta — Self-Hosted Deep Research API</div>
+          </div>
+          <div class="p-desc">
+            Privacy-first Research-as-a-Service platform automating multi-round research workflows: query planning, web search, content extraction, fact synthesis, and cited report generation.
+          </div>
+          <ul class="p-bullets">
+            <li>Scalable asynchronous queue-based modular monolith.</li>
+            <li>Database persistence, webhook integration, and source tracking.</li>
+            <li>Conversational report querying over completed findings.</li>
+          </ul>
           <div class="p-tech">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">WebSockets</span><span class="chip">LLMs</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Python 3.11</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Redis</span>
+            <span class="chip">SQLAlchemy</span>
+            <span class="chip">ARQ</span>
+            <span class="chip">SearXNG</span>
+            <span class="chip">Docker</span>
+            <span class="chip">LLM APIs</span>
           </div>
         </div>
 
+        <!-- WatchNT -->
         <div class="project-card">
-          <div class="p-name">NeuroSleepNet (v1.0)</div>
-          <div class="p-desc">Developed a memory-augmented learning framework to mitigate catastrophic forgetting in AI agents. Implemented latent replay buffers and automatic task-boundary detection mechanisms.</div>
+          <div class="p-top">
+            <div class="p-name">WatchNT — Privacy-First Meeting Assistant</div>
+          </div>
+          <div class="p-desc">
+            Open-source meeting assistant capturing tab audio and live captions across Google Meet, Zoom Web, and MS Teams Web to automate transcription and intelligence extraction.
+          </div>
+          <ul class="p-bullets">
+            <li>Containerized FastAPI backend & Manifest V3 extension.</li>
+            <li>Local Faster-Whisper STT with parallel Pydantic JSON pipelines.</li>
+            <li>Bring-Your-Own-Keys (BYOK) offline Ollama & cloud LLMs.</li>
+          </ul>
           <div class="p-tech">
-            <span class="chip">PyTorch</span><span class="chip">HuggingFace</span><span class="chip">LangChain</span><span class="chip">Docker</span><span class="chip">LLM Systems</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">React 19</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Manifest V3</span>
+            <span class="chip">Faster-Whisper</span>
+            <span class="chip">Ollama</span>
+            <span class="chip">SQLite</span>
+            <span class="chip">Docker</span>
           </div>
         </div>
 
+        <!-- NeuroSleepNet -->
         <div class="project-card">
-          <div class="p-name">Vanta – A Deep Research API</div>
-          <div class="p-desc">Architected a privacy-first Research-as-a-Service platform automating multi-round research workflows. Built scalable asynchronous infrastructure with job queues and database persistence.</div>
+          <div class="p-top">
+            <div class="p-name">NeuroSleepNet v1.0 — Memory Infrastructure</div>
+          </div>
+          <div class="p-desc">
+            Memory-augmented learning framework to mitigate catastrophic forgetting in AI agents through latent replay buffers and automatic task-boundary detection.
+          </div>
+          <ul class="p-bullets">
+            <li>Latent replay buffers preventing knowledge erosion in small LMs.</li>
+            <li>Designed LLM sidecar memory injection mechanism.</li>
+            <li>Monitoring dashboards for real-time retention analysis.</li>
+          </ul>
           <div class="p-tech">
-            <span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">SearXNG</span><span class="chip">LLM APIs</span>
+            <span class="chip">PyTorch</span>
+            <span class="chip">LangChain</span>
+            <span class="chip">Replay Buffers</span>
+            <span class="chip">LLM Sidecars</span>
+            <span class="chip">Continual Learning</span>
           </div>
         </div>
 
+        <!-- Real-Time Voice AI System -->
         <div class="project-card">
-          <div class="p-name">Research Paper Implementations</div>
-          <div class="p-desc">Implemented transformer architectures from Attention Is All You Need and ResNet models from Deep Residual Learning for Image Recognition. Evaluated models on benchmark datasets.</div>
+          <div class="p-top">
+            <div class="p-name">Real-Time Voice AI System</div>
+          </div>
+          <div class="p-desc">
+            Low-latency conversational Voice-to-Voice AI platform integrating Speech-to-Text, LLM inference, and Text-to-Speech into a scalable streaming architecture.
+          </div>
+          <ul class="p-bullets">
+            <li>Sub-second end-to-end bidirectional voice turnaround.</li>
+            <li>WebSocket streaming with Redis session orchestration.</li>
+            <li>Optimized GPU inference & containerized backend.</li>
+          </ul>
           <div class="p-tech">
-            <span class="chip">Transformers</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span>
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Redis</span>
+            <span class="chip">WebSockets</span>
+            <span class="chip">Docker</span>
+            <span class="chip">GPU Inference</span>
           </div>
         </div>
 
       </div>
 
       <!-- Research -->
-      <div style="margin-top: 40px;">
-        <div class="section-label" style="margin-bottom: 24px;">Ongoing Research</div>
-        <div class="research-item">
-          <div class="r-title">Federated Learning &amp; Differential Privacy</div>
-          <div class="r-desc">Researching privacy-preserving federated learning architectures for decentralized AI systems. Exploring differential privacy techniques while building scalable distributed training pipelines.</div>
-          <div class="p-tech" style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
-            <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Federated Learning</span><span class="chip">Differential Privacy</span>
-          </div>
+      <div class="research-card">
+        <div class="section-label" style="margin-bottom: 14px;">Research &amp; Exploration</div>
+        <div class="r-title">Federated Learning &amp; Differential Privacy</div>
+        <div class="r-desc">
+          Researching privacy-preserving federated learning architectures and differential privacy techniques that maintain model accuracy across distributed nodes. Building scalable distributed training pipelines with CI/CD integration.
+        </div>
+        <div class="p-tech" style="margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap;">
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">Federated Learning</span>
+          <span class="chip">Differential Privacy</span>
+          <span class="chip">Distributed Training</span>
+          <span class="chip">CI/CD</span>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
     <section id="skills">
-      <div class="section-label">Skills</div>
+      <div class="section-label">Technical Skills</div>
       <div class="skills-grid">
+
         <div class="skill-block">
-          <div class="label">Languages</div>
+          <div class="label">Languages &amp; Frameworks</div>
           <div class="tags">
-            <span class="chip">Python</span><span class="chip">Go</span><span class="chip">SQL</span><span
-              class="chip">JavaScript</span><span class="chip">Bash</span>
+            <span class="chip">Python</span>
+            <span class="chip">Go</span>
+            <span class="chip">C</span>
+            <span class="chip">JavaScript / TypeScript</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Django</span>
+            <span class="chip">Flask</span>
+            <span class="chip">React</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Node.js / Express</span>
+            <span class="chip">Streamlit</span>
           </div>
         </div>
+
         <div class="skill-block">
-          <div class="label">Deep Learning / ML</div>
+          <div class="label">Backend &amp; APIs</div>
           <div class="tags">
-            <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span
-              class="chip">scikit-learn</span><span class="chip">Pandas/NumPy</span><span class="chip">SciPy</span>
+            <span class="chip">RESTful API Design</span>
+            <span class="chip">WebSockets</span>
+            <span class="chip">SQLAlchemy</span>
+            <span class="chip">SQLite</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Redis</span>
+            <span class="chip">Pydantic</span>
+            <span class="chip">Async Architecture</span>
           </div>
         </div>
+
         <div class="skill-block">
-          <div class="label">GenAI / NLP</div>
+          <div class="label">Machine Learning &amp; AI</div>
           <div class="tags">
-            <span class="chip">LLMs</span><span class="chip">LangChain</span><span class="chip">RAG</span><span
-              class="chip">Transformers</span><span class="chip">Hugging Face</span><span class="chip">Vector DBs</span>
+            <span class="chip">PyTorch</span>
+            <span class="chip">TensorFlow</span>
+            <span class="chip">Keras</span>
+            <span class="chip">scikit-learn</span>
+            <span class="chip">CNN / LSTM</span>
+            <span class="chip">BERT</span>
+            <span class="chip">Mistral</span>
+            <span class="chip">LoRA</span>
+            <span class="chip">Transformers</span>
+            <span class="chip">LangChain</span>
+            <span class="chip">RAG Pipelines</span>
           </div>
         </div>
+
         <div class="skill-block">
-          <div class="label">Computer Vision</div>
+          <div class="label">NLP &amp; Computer Vision</div>
           <div class="tags">
-            <span class="chip">OpenCV</span><span class="chip">CNNs</span><span class="chip">ResNet</span><span
-              class="chip">YOLO</span><span class="chip">Image Segmentation</span>
+            <span class="chip">NLTK</span>
+            <span class="chip">Transformers</span>
+            <span class="chip">RAG Systems</span>
+            <span class="chip">OpenCV</span>
+            <span class="chip">CNNs</span>
+            <span class="chip">YOLO</span>
           </div>
         </div>
+
         <div class="skill-block">
-          <div class="label">Backend Architecture</div>
+          <div class="label">Data Science</div>
           <div class="tags">
-            <span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">WebSockets</span><span
-              class="chip">Redis</span><span class="chip">REST APIs</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">NumPy</span>
+            <span class="chip">Matplotlib</span>
+            <span class="chip">Seaborn</span>
+            <span class="chip">Jupyter Notebook</span>
+            <span class="chip">Data Analysis</span>
+            <span class="chip">Visualization</span>
           </div>
         </div>
+
         <div class="skill-block">
-          <div class="label">MLOps / Cloud</div>
+          <div class="label">DevOps &amp; MLOps</div>
           <div class="tags">
-            <span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">MLflow /
-              W&B</span><span class="chip">AWS/GCP</span><span class="chip">CI/CD</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Git</span>
+            <span class="chip">GitHub Actions (CI/CD)</span>
+            <span class="chip">Poetry</span>
+            <span class="chip">MLflow</span>
+            <span class="chip">Weights &amp; Biases</span>
+            <span class="chip">Loguru</span>
           </div>
         </div>
+
+      </div>
+
+      <div style="margin-top: 18px; font-size: 11.5px; color: var(--muted); display: flex; gap: 8px; align-items: center;">
+        <span style="color: var(--accent); font-weight: 500;">Spoken Languages:</span>
+        <span>English, Hindi, Bengali</span>
       </div>
     </section>
 
-    <!-- Certifications -->
-    <section id="certifications">
+    <!-- Education & Certifications -->
+    <section id="education">
       <div class="section-label">Education &amp; Certifications</div>
-      <div style="margin-bottom: 28px;">
-        <div class="exp-role" style="font-family: var(--serif); font-size:16px; color:var(--white); font-weight:300;">
-          B.Tech — Computer Science &amp; Engineering</div>
-        <div class="exp-org" style="color:var(--accent); font-size:12px; margin-top:4px;">Adamas University · 3rd Year ·
-          CGPA: 8.0</div>
+
+      <div class="edu-block">
+        <div>
+          <div class="exp-role">B.Tech in Computer Science and Engineering</div>
+          <div class="exp-org">Adamas University · Kolkata, West Bengal</div>
+        </div>
+        <div class="exp-meta-right">
+          <div class="exp-duration">Expected 2027</div>
+          <div style="font-size: 11px; color: var(--accent); margin-top: 2px;">GPA: 8.0 / 10</div>
+        </div>
       </div>
+
+      <div class="section-label" style="margin: 28px 0 16px; font-size: 9.5px;">Certifications</div>
       <div class="cert-list">
-        <div class="cert-item"><span class="cert-name">Generative AI Fundamentals</span><span
-            class="cert-issuer">Google</span></div>
-        <div class="cert-item"><span class="cert-name">Prepare Data for ML APIs on Google Cloud</span><span
-            class="cert-issuer">DeepLearning.ai</span></div>
-        <div class="cert-item"><span class="cert-name">Create and Manage Cloud Resources</span><span
-            class="cert-issuer">Google</span></div>
-        <div class="cert-item"><span class="cert-name">Enterprise Design Thinking</span><span
-            class="cert-issuer">IBM</span></div>
-        <div class="cert-item"><span class="cert-name">Build a Secure Google Cloud Network</span><span
-            class="cert-issuer">Google</span></div>
+        <div class="cert-item">
+          <span class="cert-name">Generative AI Fundamentals</span>
+          <span class="cert-issuer">Google</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">Prepare Data for ML APIs on Google Cloud</span>
+          <span class="cert-issuer">DeepLearning.AI</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">Create and Manage Cloud Resources</span>
+          <span class="cert-issuer">Google</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">Enterprise Design Thinking</span>
+          <span class="cert-issuer">IBM</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">Build a Secure Google Cloud Network</span>
+          <span class="cert-issuer">Google</span>
+        </div>
       </div>
     </section>
 
@@ -782,21 +1091,24 @@
     <section id="contact">
       <div class="section-label">Contact</div>
       <h2>Let's build something.</h2>
-      <p style="color:var(--muted); font-size:13px; margin: 12px 0 32px; max-width:420px;">
-        Open to ML engineering, backend, or research-adjacent roles. Reach out via email or connect on LinkedIn.
+      <p style="color:var(--muted); font-size:13.5px; margin: 12px 0 32px; max-width:480px; line-height: 1.7;">
+        Available for AI engineering, backend systems, and research-adjacent roles. Reach out via email or direct message.
       </p>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="mailto:palaviroopoff@gmail.com" class="btn btn-primary">palaviroopoff@gmail.com</a>
-        <a href="tel:+917044560675" class="btn btn-ghost">+91 70445 60675</a>
+        <a href="mailto:palaviroopoff@gmail.com" class="btn btn-primary">✉ palaviroopoff@gmail.com</a>
+        <a href="tel:+917044560675" class="btn btn-ghost">✆ +91 7044560675</a>
+        <a href="https://www.linkedin.com/in/aviroop-pal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://github.com/avirooppal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
       </div>
     </section>
 
     <footer>
-      <span>© 2025 Aviroop Pal</span>
-      <div style="display:flex; gap:20px;">
-        <a href="https://github.com/avirooppal " target="_blank" class="btn btn-ghost">GitHub</a>
-        <a href="https://www.linkedin.com/in/aviroop-pal" target="_blank" class="btn btn-ghost">LinkedIn</a>
-        <a href="https://x.com/obhisaysavi" target="_blank" class="btn btn-ghost">x</a>
+      <span>© 2026 Aviroop Pal · Kolkata, West Bengal, India</span>
+      <div style="display:flex; gap:16px;">
+        <a href="https://github.com/avirooppal" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/aviroop-pal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/obhisaysavi" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="Aviroop-Pal-Resume.pdf" target="_blank">Resume</a>
       </div>
     </footer>
 
@@ -806,7 +1118,12 @@
     // Intersection observer for section reveals
     const sections = document.querySelectorAll('section:not(#hero)');
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
     }, { threshold: 0.08 });
     sections.forEach(s => io.observe(s));
   </script>
